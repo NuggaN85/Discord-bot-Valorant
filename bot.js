@@ -42,4 +42,4 @@ client.on('interactionCreate', async (interaction) => {
   }
 });
 
-client.login('<votre_token>');
+client.login('<VOTRE_TOKEN_DISCORD>');
