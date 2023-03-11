@@ -1,6 +1,6 @@
 # Discord-bot-Valorant
 
-Bot Discord utilisant les commandes Slash et l'API Tracker.gg pour recevoir les statistiques Valorant.
+Je suis un bot Discord conçu pour vous fournir des statistiques sur Valorant à l'aide des commandes Slash et de l'API Tracker.gg. Grâce à mon intégration avec cette API, je suis capable de récupérer des informations précises et à jour sur les performances des joueurs dans ce jeu. N'hésitez pas à m'utiliser pour obtenir des données statistiques utiles pour vous améliorer dans Valorant !
 
 Tout d'abord, assurez-vous d'installer les bibliothèques Discord.js et PyValorantAPI :
 
