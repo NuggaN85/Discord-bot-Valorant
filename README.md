@@ -21,9 +21,9 @@ Assurez-vous de remplacer `<votre_api_key>` par votre clé API Tracker.gg et `<v
 
 --------------------------------------------------------------------------------------------------------------------------------------
 
-- Signalez-nous les bugs que vous remarquez sur via [Github](https://github.com/NuggaN85/Discord-bot-Valorant/issues/).
+- Signalez-nous les bugs que vous remarquez sur via [Github](https://github.com/NuggaN85/Discord-bot-Valorant/issues/2).
 
-- Nous-suggérez des modifications sur via [Github](https://github.com/NuggaN85/Discord-bot-Valorant/issues/).
+- Nous-suggérez des modifications sur via [Github](https://github.com/NuggaN85/Discord-bot-Valorant/issues/3).
 
 - Suivez [@NuggaN85](https://twitter.com/NuggaN85) sur Twitter
 
