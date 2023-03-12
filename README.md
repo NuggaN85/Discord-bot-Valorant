@@ -1,5 +1,13 @@
 # Discord-bot-Valorant
 
+```
+ * Dev: NuggaN85
+ * Github: NuggaN85
+ * Twitter: @NuggaN85
+ * Copyright © 2023 All rights reserved.
+ * MIT Licensed
+```
+
 Je suis un bot Discord conçu pour vous fournir des statistiques sur Valorant à l'aide des commandes Slash et de l'API Tracker.gg. Grâce à mon intégration avec cette API, je suis capable de récupérer des informations précises et à jour sur les performances des joueurs dans ce jeu. N'hésitez pas à m'utiliser pour obtenir des données statistiques utiles pour vous améliorer dans Valorant !
 
 Avant de commencer, il est important de s'assurer que les bibliothèques `Discord.js` et `PyValorantAPI` sont installées sur votre système. Ces bibliothèques sont essentielles pour assurer le bon fonctionnement de votre application ou bot Discord. Veillez donc à vérifier leur installation avant de continuer. Si vous rencontrez des difficultés lors de l'installation, n'hésitez pas à consulter la documentation de chaque bibliothèque ou à demander de l'aide à la communauté de développeurs en ligne.
