@@ -6,10 +6,12 @@ Avant de commencer, il est important de s'assurer que les bibliothèques `Discor
 
 ```
 npm install discord.js
+npm install axios
 npm install py-valorant-api
 ```
 
 https://www.npmjs.com/package/discord.js
+https://www.npmjs.com/package/axios
 Béta : https://valorant-api.com/
 
 Assurez-vous de remplacer `<votre_api_key>` par votre clé API Tracker.gg et `<VOTRE_TOKEN_DISCORD>` par le jeton de votre bot Discord. Ensuite, vous pouvez exécuter ce code et utiliser la commande slash `/stats <nom_utilisateur>` pour obtenir les statistiques du joueur dans Valorant.
