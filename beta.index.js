@@ -1,5 +1,4 @@
 const Discord = require('discord.js');
-const Discord = require('discord.js');
 const axios = require('axios');
 const client = new Discord.Client();
 const valorantApiKey = 'VOTRE_CLE_D_API_VALORANT_API_COM';
