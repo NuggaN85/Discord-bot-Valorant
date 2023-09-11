@@ -33,8 +33,6 @@ Assurez-vous de remplacer `<VOTRE_TRACKERGG_API_KEY>` par votre clé API Tracker
 
 - Nous-suggérez des modifications sur via [Github](https://github.com/NuggaN85/Discord-bot-Valorant/issues/3).
 
-- Suivez [@NuggaN85](https://twitter.com/NuggaN85) sur Twitter
-
 - Discord : https://discord.gg/4gZsXRKdmJ
 
 --------------------------------------------------------------------------------------------------------------------------------------
