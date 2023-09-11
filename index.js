@@ -1,4 +1,4 @@
-const { Client, GatewayIntentBits } = require('discord.js');
+const { Client, GatewayIntentBits, MessageEmbed } = require('discord.js');
 const axios = require('axios');
 
 const client = new Client({
@@ -42,13 +42,16 @@ client.on('interactionCreate', async (interaction) => {
         await interaction.reply('Joueur introuvable.');
       } else {
         const stats = playerData.stats;
-        const statsMessage = `Statistiques Valorant pour ${username} :
-        - Level : ${stats.level.displayValue}
-        - K/D Ratio : ${stats.kd.displayValue}
-        - Victoires : ${stats.wins.displayValue}
-        - Matchs joués : ${stats.matches.displayValue}`;
 
-        await interaction.reply({ content: statsMessage, ephemeral: true });
+        // Crée un embed pour afficher les statistiques
+        const statsEmbed = new MessageEmbed()
+          .setTitle(`Statistiques Valorant pour ${username}`)
+          .addField('Level', stats.level.displayValue, true)
+          .addField('K/D Ratio', stats.kd.displayValue, true)
+          .addField('Victoires', stats.wins.displayValue, true)
+          .addField('Matchs joués', stats.matches.displayValue, true);
+
+        await interaction.reply({ embeds: [statsEmbed], ephemeral: true });
       }
     } catch (error) {
       console.error(error);
