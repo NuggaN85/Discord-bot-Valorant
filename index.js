@@ -1,14 +1,19 @@
-const { Client, Intents } = require('discord.js');
-const { ValorantAPI } = require('py-valorant-api');
+const { Client, GatewayIntentBits } = require('discord.js');
+const axios = require('axios');
 
 const client = new Client({
-  intents: [Intents.FLAGS.GUILDS],
+  intents: [
+    GatewayIntentBits.Guilds,
+    GatewayIntentBits.GuildMessages,
+    GatewayIntentBits.MessageContent,
+  ],
 });
 
-const valorant_api = new ValorantAPI({ api_key: '<votre_api_key>' });
+const TOKEN = 'YOUR_BOT_TOKEN'; // Remplacez par le token de votre bot
+const TRACKERGG_API_KEY = 'YOUR_TRACKERGG_API_KEY'; // Remplacez par votre clé API Tracker.gg
 
 client.on('ready', () => {
-  console.log(`Logged in as ${client.user.tag}!`);
+  console.log(`Logged in as ${client.user.tag}`);
 });
 
 client.on('interactionCreate', async (interaction) => {
@@ -20,26 +25,31 @@ client.on('interactionCreate', async (interaction) => {
     const username = options.getString('username');
 
     try {
-      // Obtenir les statistiques du joueur
-      const stats = await valorant_api.get_player_stats(username);
+      // Appel à l'API Tracker.gg pour obtenir les statistiques du joueur Valorant
+      const response = await axios.get(`https://api.tracker.gg/api/v2/valorant/standard/profile/riot/${username}`, {
+        headers: {
+          'TRN-Api-Key': TRACKERGG_API_KEY,
+        },
+      });
 
-      // Créer un message avec les statistiques
-      let message = `Statistiques pour ${username}:\n\n`;
-      for (const mode in stats) {
-        const mode_stats = stats[mode];
-        message += `${mode}:\n`;
-        message += `  Victoires: ${mode_stats.wins}\n`;
-        message += `  Défaites: ${mode_stats.losses}\n`;
-        message += `  Ratio de victoires: ${(mode_stats.win_rate * 100).toFixed(2)}%\n\n`;
+      const playerData = response.data.data;
+      if (!playerData) {
+        await interaction.reply('Joueur introuvable.');
+      } else {
+        const stats = playerData.stats;
+        const statsMessage = `Statistiques Valorant pour ${username} :
+        - Level : ${stats.level.displayValue}
+        - K/D Ratio : ${stats.kd.displayValue}
+        - Victoires : ${stats.wins.displayValue}
+        - Matchs joués : ${stats.matches.displayValue}`;
+
+        await interaction.reply(statsMessage);
       }
-
-      // Envoyer le message au canal Discord
-      interaction.reply(message);
-    } catch (e) {
-      // Si le nom d'utilisateur n'est pas valide, envoyer un message d'erreur
-      interaction.reply(e.message);
+    } catch (error) {
+      console.error(error);
+      await interaction.reply('Une erreur s\'est produite lors de la récupération des statistiques Valorant.');
     }
   }
 });
 
-client.login('<VOTRE_TOKEN_DISCORD>');
+client.login(TOKEN);
