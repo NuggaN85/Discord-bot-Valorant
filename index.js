@@ -24,6 +24,11 @@ client.on('interactionCreate', async (interaction) => {
   if (commandName === 'stats') {
     const username = options.getString('username');
 
+    if (!username) {
+      await interaction.reply('Veuillez fournir un nom d\'utilisateur.');
+      return;
+    }
+
     try {
       // Appel à l'API Tracker.gg pour obtenir les statistiques du joueur Valorant
       const response = await axios.get(`https://api.tracker.gg/api/v2/valorant/standard/profile/riot/${username}`, {
@@ -43,7 +48,7 @@ client.on('interactionCreate', async (interaction) => {
         - Victoires : ${stats.wins.displayValue}
         - Matchs joués : ${stats.matches.displayValue}`;
 
-        await interaction.reply(statsMessage);
+        await interaction.reply({ content: statsMessage, ephemeral: true });
       }
     } catch (error) {
       console.error(error);
