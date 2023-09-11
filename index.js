@@ -9,8 +9,8 @@ const client = new Client({
   ],
 });
 
-const TOKEN = 'YOUR_BOT_TOKEN'; // Remplacez par le token de votre bot
-const TRACKERGG_API_KEY = 'YOUR_TRACKERGG_API_KEY'; // Remplacez par votre clé API Tracker.gg
+const TOKEN = 'VOTRE_TOKEN_DISCORD'; // Remplacez par le token de votre bot
+const TRACKERGG_API_KEY = 'VOTRE_TRACKERGG_API_KEY'; // Remplacez par votre clé API Tracker.gg
 
 client.on('ready', () => {
   console.log(`Logged in as ${client.user.tag}`);
